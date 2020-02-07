@@ -11,7 +11,7 @@ public class Player : MovingObject
     private Animator animator;
     private int food;
     // Start is called before the first frame update
-    protected void Start()
+    protected override void Start()
     {
         animator = GetComponent<Animator>();
         food = GameManager.instance.playerFoodPoints;
@@ -45,7 +45,7 @@ public class Player : MovingObject
         vertical = (int) Input.GetAxisRaw("Vertical");
         if (horizontal != 0)
             vertical = 0;
-        if (horizontal != 0 && vertical != 0)
+        if (horizontal != 0 || vertical != 0)
             AttemptMove<Wall>(horizontal, vertical);
     }
     protected override void onCantMove<T>(T component){

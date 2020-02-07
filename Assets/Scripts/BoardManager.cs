@@ -55,6 +55,7 @@ public class BoardManager : MonoBehaviour
     {
         int randomIndex = Random.Range(0, gridPositions.Count);
         Vector3 randomPosition = gridPositions[randomIndex];
+        gridPositions.RemoveAt(randomIndex);
         return randomPosition;
     }
     void LayoutObjectAtRandom(GameObject[] tileArray, int minimum, int maximum)
